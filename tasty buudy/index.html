@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="Tasty Buddy - Order delicious Indian food for doorstep delivery">
+  <meta name="theme-color" content="#ff6b35">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Tasty Buddy - Indian Food Delivery</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">TASTY BUDDY</div>
+    <ul class="nav-tabs">
+      <li data-tab="home" class="nav-tab active">Home</li>
+      <li data-tab="items" class="nav-tab">Items</li>
+      <li data-tab="about" class="nav-tab">About</li>
+      <li data-tab="profile" class="nav-tab">Profile</li>
+      <li data-tab="cart" class="nav-tab cart-tab">
+        <span class="cart-icon">🛒</span>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Home Page -->
+  <div id="home-page" class="page-content active">
+    <div class="hero-section">
+      <h1 class="brand-title">Tasty Buddy</h1>
+      <p class="tagline">"Fast, fresh, and affordable meals anytime, anywhere!"</p>
+    </div>
+    <div class="food-gallery">
+      <div class="gallery-card card-1">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&h=400&fit=crop" alt="Delicious Indian Biryani">
+      </div>
+      <div class="gallery-card card-2">
+        <img src="https://carveyourcraving.com/wp-content/uploads/2021/10/paneer-tikka-skewers.jpg" alt="Paneer Tikka">
+      </div>
+      <div class="gallery-card card-3">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&h=400&fit=crop" alt="Crispy Samosas">
+      </div>
+    </div>
+    <div class="explore-btn-container">
+      <button id="explore-btn" class="cta-button glowing">Explore More</button>
+    </div>
+  </div>
+
+  <!-- About Page -->
+  <div id="about-page" class="page-content">
+    <h2>About Tasty Buddy</h2>
+    <div class="about-content">
+      <section class="mission">
+        <h3>Our Mission</h3>
+        <p>Bringing authentic Indian flavors to your doorstep with love and care. We believe that great food brings people together and creates memorable moments.</p>
+      </section>
+      <section class="process">
+        <h3>How It Works</h3>
+        <div class="process-steps">
+          <div class="step">
+            <div class="step-icon">🍽️</div>
+            <p>Browse our menu</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">🛒</div>
+            <p>Place your order</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">🚚</div>
+            <p>Enjoy doorstep delivery</p>
+          </div>
+        </div>
+      </section>
+      <section class="contact">
+        <h3>Contact Us</h3>
+        <p>Email: support@tastybuddy.com</p>
+        <p>Phone: +91 99885 99885</p>
+      </section>
+    </div>
+  </div>
+
+  <!-- Items Page -->
+  <div id="items-page" class="page-content">
+    <h2>Our Menu</h2>
+    <div class="category-buttons">
+      <button class="category-btn glowing-btn" data-category="appetizer">
+        <span class="btn-icon">🍢</span>
+        <span>Starters</span>
+      </button>
+      <button class="category-btn glowing-btn" data-category="main-course">
+        <span class="btn-icon">🍛</span>
+        <span>Main Course</span>
+      </button>
+      <button class="category-btn glowing-btn" data-category="dessert">
+        <span class="btn-icon">🍰</span>
+        <span>Desserts</span>
+      </button>
+      <button class="category-btn glowing-btn" data-category="shakes">
+        <span class="btn-icon">🥤</span>
+        <span>Shakes</span>
+      </button>
+    </div>
+    <div class="items-grid" id="items-grid">
+      <!-- Dynamically generated food item cards -->
+    </div>
+  </div>
+
+  <!-- Profile Page -->
+  <div id="profile-page" class="page-content">
+    <h2>My Profile</h2>
+    
+    <!-- Login Prompt (shown when not logged in) -->
+    <div id="login-prompt" class="login-prompt">
+      <div class="login-prompt-content">
+        <div class="login-illustration">
+          <div class="login-icon-circle">
+            <svg class="login-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+        </div>
+        <h3>Welcome to Your Profile</h3>
+        <p>Sign in to access your personalized dashboard, track orders, and manage your account</p>
+        <div class="login-benefits">
+          <div class="benefit-item">
+            <span class="benefit-icon">📦</span>
+            <span>Track Orders</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">⚡</span>
+            <span>Quick Checkout</span>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🎁</span>
+            <span>Exclusive Offers</span>
+          </div>
+        </div>
+        <button class="cta-button glowing" onclick="showAuthModal()">
+          <span>Get Started</span>
+          <span class="button-arrow">→</span>
+        </button>
+        <p class="login-subtext">New to Tasty Buddy? <a href="#" onclick="showAuthModal(); showSignupForm(); return false;" class="signup-link">Create an account</a></p>
+      </div>
+    </div>
+
+    <!-- Profile Content (shown when logged in) -->
+    <div id="profile-content" class="hidden">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar" id="profile-avatar">
+              <img id="profile-picture" src="" alt="Profile" class="hidden" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+              <svg id="default-avatar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <div class="profile-status">✓</div>
+            <button class="upload-photo-btn" onclick="document.getElementById('profile-photo-input').click()" title="Upload profile photo">
+              📷
+            </button>
+            <input type="file" id="profile-photo-input" accept="image/*" onchange="handleProfilePhotoUpload(event)" class="hidden">
+          </div>
+          <div class="profile-info">
+            <h3 id="user-name">Guest User</h3>
+            <div class="profile-details">
+              <div class="detail-item">
+                <span class="detail-icon">📧</span>
+                <span id="user-email">guest@example.com</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">📱</span>
+                <span id="user-phone">+91 9876 5 4321</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">📍</span>
+                <span id="user-location">Location not set</span>
+              </div>
+            </div>
+          </div>
+          <button id="logout-btn" class="logout-btn hidden" onclick="handleLogout()">
+            <span>Logout</span>
+            <span class="logout-icon">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button class="action-card" onclick="toggleOrderHistory()">
+          <div class="action-icon">📦</div>
+          <div class="action-content">
+            <h4>View Orders</h4>
+            <p>Track your order history</p>
+          </div>
+          <div class="action-badge" id="quick-order-count">0</div>
+        </button>
+        <button class="action-card" onclick="switchTab('items')">
+          <div class="action-icon">🍽️</div>
+          <div class="action-content">
+            <h4>Browse Menu</h4>
+            <p>Explore delicious items</p>
+          </div>
+        </button>
+        <button class="action-card" onclick="switchTab('cart')">
+          <div class="action-icon">🛒</div>
+          <div class="action-content">
+            <h4>My Cart</h4>
+            <p>View cart items</p>
+          </div>
+        </button>
+      </div>
+      
+      <section class="order-history hidden" id="order-history-section">
+        <div class="section-header">
+          <h3>Order History</h3>
+          <div class="header-actions">
+            <button class="clear-history-btn" onclick="clearOrderHistory()" title="Clear all order history">
+              <span>Clear History</span>
+              <span>🗑️</span>
+            </button>
+          </div>
+        </div>
+        <div id="orders-container">
+          <!-- Dynamically generated order history -->
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Cart Page -->
+  <div id="cart-page" class="page-content">
+    <h2>Your Cart</h2>
+    <div id="cart-items-container">
+      <!-- Dynamically generated cart items -->
+    </div>
+    <div class="cart-summary">
+      <p class="cart-total">Total: ₹<span id="total-amount">0</span></p>
+      <button id="place-order-btn" class="cta-button">Place Order</button>
+    </div>
+    <div id="empty-cart-message" class="hidden">
+      <p>Your cart is empty. Start adding delicious items!</p>
+    </div>
+  </div>
+
+  <!-- Item Detail Modal -->
+  <div id="item-detail-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="close-btn">&times;</button>
+      <img src="" alt="" class="detail-image" id="detail-image">
+      <h2 class="detail-name" id="detail-name"></h2>
+      <p class="detail-description" id="detail-description"></p>
+      <p class="detail-ingredients" id="detail-ingredients"></p>
+      <p class="detail-price" id="detail-price"></p>
+      <div class="action-buttons">
+        <button class="add-to-cart-btn" id="modal-add-to-cart">Add to Cart</button>
+        <button class="order-now-btn" id="modal-order-now">Order Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Modal -->
+  <div id="order-confirmation-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <h2>Order Confirmed! 🎉</h2>
+      <div class="order-summary">
+        <p>Order ID: <span id="order-id"></span></p>
+        <p>Estimated Delivery: 30-45 minutes</p>
+      </div>
+      
+      <div class="ordered-items-section">
+        <h3>Your Order</h3>
+        <div id="ordered-items-list" class="ordered-items-list">
+          <!-- Ordered items will be dynamically inserted here -->
+        </div>
+      </div>
+      
+      <div class="order-total-section">
+        <p><strong>Total Items:</strong> <span id="order-item-count"></span></p>
+        <p class="order-total-amount"><strong>Total Amount:</strong> ₹<span id="order-total-amount"></span></p>
+      </div>
+      
+      <button class="cta-button" id="close-order-confirmation">Close</button>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="notification-toast" class="notification-toast hidden">
+    <span id="notification-message"></span>
+  </div>
+
+  <!-- Auth Modal (Login/Signup) -->
+  <div id="auth-modal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeAuthModal()"></div>
+    <div class="modal-content auth-modal-content">
+      <button class="close-btn" onclick="closeAuthModal()">&times;</button>
+      
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button id="login-tab" class="auth-tab active" onclick="showLoginForm()">Login</button>
+        <button id="signup-tab" class="auth-tab" onclick="showSignupForm()">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-form-container" class="auth-form-container">
+        <h2>Welcome Back!</h2>
+        <form id="login-form" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Login</button>
+        </form>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signup-form-container" class="auth-form-container hidden">
+        <h2>Create Account</h2>
+        <form id="signup-form" onsubmit="handleSignup(event)">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-phone">Phone Number</label>
+            <input type="tel" id="signup-phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Create a password (min 6 characters)" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-confirm-password">Confirm Password</label>
+            <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+          </div>
+          <button type="submit" class="auth-submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkout-modal" class="modal hidden">
+    <div class="modal-overlay" onclick="closeCheckoutModal()"></div>
+    <div class="modal-content checkout-modal-content">
+      <button class="close-btn" onclick="closeCheckoutModal()">&times;</button>
+      <h2>Checkout</h2>
+      
+      <div class="checkout-summary">
+        <p><strong>Total Items:</strong> <span id="checkout-items-count">0</span></p>
+        <p><strong>Total Amount:</strong> ₹<span id="checkout-total">0</span></p>
+      </div>
+
+      <form id="checkout-form" onsubmit="handleCheckout(event)">
+        <h3>Delivery Details</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkout-name">Full Name *</label>
+            <input type="text" id="checkout-name" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label for="checkout-phone">Phone Number *</label>
+            <input type="tel" id="checkout-phone" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-email">Email *</label>
+          <input type="email" id="checkout-email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="checkout-address">Delivery Address *</label>
+          <textarea id="checkout-address" rows="3" placeholder="House/Flat No., Street, Area" required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkout-city">City *</label>
+            <input type="text" id="checkout-city" placeholder="Enter city" required>
+          </div>
+          <div class="form-group">
+            <label for="checkout-pincode">Pincode *</label>
+            <input type="text" id="checkout-pincode" placeholder="Enter pincode" pattern="[0-9]{6}" required>
+          </div>
+        </div>
+
+        <h3>Payment Method</h3>
+        <div class="form-group">
+          <select id="payment-method" onchange="toggleUpiField()" required>
+            <option value="">Select Payment Method</option>
+            <option value="cod">Cash on Delivery</option>
+            <option value="upi">UPI Payment</option>
+          </select>
+        </div>
+
+        <div id="upi-field" class="form-group hidden">
+          <label for="upi-id">UPI ID *</label>
+          <input type="text" id="upi-id" placeholder="yourname@upi" pattern="[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}">
+          <small class="form-hint">Enter your UPI ID (e.g., 9876543210@paytm)</small>
+        </div>
+
+        <button type="submit" class="auth-submit-btn">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/foodData.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
